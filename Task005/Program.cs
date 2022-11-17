@@ -2,7 +2,7 @@
 // для которых каждое следующее равно сумме двух предыдущих. 
 // Первые два элемента последовательности задаются пользователем
 
-int Sum(int a, int b, int n)
+int SequenceOfElements(int a, int b, int n)
 {
     if(n == 1) 
         return a;
@@ -11,17 +11,20 @@ int Sum(int a, int b, int n)
     else if(n == 3)
         return a + b;
     else
-        return Sum(b, a + b, n - 1); 
+        return SequenceOfElements(b, a + b, n - 1); 
 }
-Console.WriteLine("Введите первый элемент последовательности: ");
-int a = int.Parse(Console.ReadLine() ?? "0");
-Console.WriteLine("Введите второй элемент последовательности: ");
-int b = int.Parse(Console.ReadLine() ?? "0");
-int n = 8;
-Console.WriteLine();
+int ReadIntegerMessage(string message)
+{
+    Console.Write(message);
+    return int.Parse(Console.ReadLine() ?? "0");
+}
 
+int a = ReadIntegerMessage("Введите первый элемент последовательности: ");
+int b = ReadIntegerMessage("Введите второй элемент последовательности: ");
+int n = ReadIntegerMessage("Введите сколько элементов будет в последовательности: ");
+Console.WriteLine();
 for(int i = 1; i <= n; i++)
 {
-    Console.WriteLine($"{i}  {Sum(a, b, i)}");
+    Console.WriteLine($"{i}  {SequenceOfElements(a, b, i)}");
 }
 
