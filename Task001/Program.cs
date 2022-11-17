@@ -15,6 +15,7 @@ Console.WriteLine("Введите число M: ");
 int m = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine("Введите число N: ");
 int n = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine($"Натуральные числа от {m} до {n}: ");
 if(m < n)
     Console.WriteLine(NumbersMLessN(m, n));
 else if(m > n)
